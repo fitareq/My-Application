@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.fitareq.myapplication.databinding.FragmentHomeBinding
+import java.text.DecimalFormat
 import kotlin.random.Random
 
 class HomeFragment : Fragment() {
@@ -61,6 +62,7 @@ class HomeFragment : Fragment() {
     private fun calculatePercentage(initialPrice: Int, random: Int): Double {
         val change = random - initialPrice
         val initial = if (initialPrice == 0) 1 else initialPrice
-        return (change.toDouble() / initial.toDouble()) * 100
+        val percent = (change.toDouble() / initial.toDouble()) * 100
+        return DecimalFormat("#.##").format(percent).toDouble()
     }
 }
